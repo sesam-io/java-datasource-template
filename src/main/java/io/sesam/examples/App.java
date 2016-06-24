@@ -2,7 +2,7 @@ package io.sesam.examples;
 
 import static spark.Spark.get;
 
-import java.io.StringWriter;
+import java.io.Writer;
 import java.util.Iterator;
 
 import com.google.gson.Gson;
@@ -18,16 +18,16 @@ public class App {
             String since = req.queryParams("since");
             Iterator<? extends Entity> iter = repository.getEntities(since);
 
-            StringWriter sw = new StringWriter();
-            sw.append("[");
+            Writer writer = res.raw().getWriter();
+            writer.append("[");
             while (iter.hasNext()) {
-                sw.append(gson.toJson(iter.next()));
+                writer.append(gson.toJson(iter.next()));
                 if (iter.hasNext()) {
-                    sw.append(",");
+                    writer.append(",");
                 }
             };
-            sw.append("]");
-            return sw.toString();
+            writer.append("]");
+            return null;
         });
     }
 
