@@ -28,6 +28,7 @@ public class App {
                 gson.toJson(iter.next(), writer);
             };
             writer.append("]");
+            writer.flush();
             return null;
         });
     }
