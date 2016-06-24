@@ -9,10 +9,10 @@ import com.google.gson.Gson;
 
 public class App {
 
-    private static Gson gson = new Gson();
-
     public static void main(String[] args) {
         Repository<Entity> repository = new EntityRepository();
+        Gson gson = new Gson();
+
         get("/entities", (req, res) -> {
             res.type("application/json");
             String since = req.queryParams("since");
@@ -21,7 +21,7 @@ public class App {
             Writer writer = res.raw().getWriter();
             writer.append("[");
             while (iter.hasNext()) {
-                writer.append(gson.toJson(iter.next()));
+                gson.toJson(iter.next(), writer);
                 if (iter.hasNext()) {
                     writer.append(",");
                 }
