@@ -20,11 +20,12 @@ public class App {
 
             Writer writer = res.raw().getWriter();
             writer.append("[");
-            while (iter.hasNext()) {
+            if (iter.hasNext()) {
                 gson.toJson(iter.next(), writer);
-                if (iter.hasNext()) {
-                    writer.append(",");
-                }
+            }
+            while (iter.hasNext()) {
+                writer.append(",");
+                gson.toJson(iter.next(), writer);
             };
             writer.append("]");
             return null;
