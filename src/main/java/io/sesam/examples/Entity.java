@@ -4,9 +4,9 @@ public class Entity {
 
 	private final String id;
 	private final String name;
-	private final int updated;
+	private final String updated;
 
-	public Entity(String id, String name, int updated) {
+	public Entity(String id, String name, String updated) {
 		this.id = id;
 		this.name = name;
 		this.updated = updated;
@@ -20,7 +20,7 @@ public class Entity {
 		return name;
 	}
 
-	public int getUpdated() {
+	public String getUpdated() {
 		return updated;
 	}
 	

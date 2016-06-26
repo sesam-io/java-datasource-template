@@ -29,7 +29,7 @@ public class App {
             };
             writer.append("]");
             writer.flush();
-            return null;
+            return "";
         });
     }
 
