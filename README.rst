@@ -2,7 +2,7 @@
 java-datasource-template
 ========================
 
-A Java micro service template for feeding a JSON entity stream to a Sesam service instance.
+A Java microservice template for feeding a JSON entity stream to a Sesam service instance.
 
 Build the service using Maven:
 
